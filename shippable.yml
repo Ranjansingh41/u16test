@@ -8,7 +8,6 @@ jobs:
              imageName: "drydock/u16"
              imageTag: master
          script:
-         
             - java -version
             - nodejs --version
             - yarn -version
@@ -38,4 +37,16 @@ jobs:
             - jq --version
             - terraform --version
             - openstack --version
+          
+ - name: u16all
+   type: runSh
+   steps:
+     - IN: u16
+     - TASK:
+         runtime:
+           options:
+             imageName: "drydock/u16all"
+             imageTag: master
+         script:
+            - ls
           
